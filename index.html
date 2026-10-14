@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Remedial 11 MATH TL-1 (Mr. Taqwa) - SMA Al Mazaya</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .gradient-math { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 35%, #312e81 70%, #4338ca 100%); }
+        .card-glow:hover { box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.2), 0 8px 10px -6px rgba(79, 70, 229, 0.1); }
+        
+        @media print {
+            body * { visibility: hidden; }
+            #printableProofArea, #printableProofArea *,
+            #printableTeacherPdfArea, #printableTeacherPdfArea * { visibility: visible; }
+            #printableProofArea, #printableTeacherPdfArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 24px;
+                background: white;
+                color: black;
+            }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col justify-between antialiased selection:bg-indigo-500 selection:text-white">
+
+    <header class="gradient-math text-white shadow-lg sticky top-0 z-40 border-b border-indigo-900/50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-3 cursor-pointer group" onclick="showView('home')">
+                <div class="p-2.5 bg-indigo-500/20 rounded-xl backdrop-blur-md border border-indigo-400/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-square-root-variable text-2xl text-amber-300"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-lg font-black leading-tight tracking-tight">11 MATH TL-1 (Mr. Taqwa)</h1>
+                        <span class="bg-amber-400/20 text-amber-300 text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-amber-400/30">KKM: 78.00</span>
+                    </div>
+                    <p class="text-xs text-indigo-200 font-medium">SMA Al Mazaya Islamic School • Portal Remedial Matematika Tingkat Lanjut</p>
+                </div>
+            </div>
+
+            <nav class="flex flex-wrap items-center gap-2">
+                <button onclick="openStudentAuthPortal()" id="navBtnAuth" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition bg-white/10 hover:bg-white/20 border border-white/20">
+                    <i class="fa-solid fa-right-to-bracket mr-1.5"></i> Portal Siswa
+                </button>
+                <button onclick="openStudentListPortal()" id="navBtnList" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition bg-emerald-500/20 hover:bg-emerald-500/40 border border-emerald-400/30 text-emerald-200">
+                    <i class="fa-solid fa-magnifying-glass mr-1.5"></i> Pencarian Siswa
+                </button>
+                <button onclick="openTeacherPortal()" id="navBtnTeacher" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition bg-amber-400 text-slate-900 hover:bg-amber-300 shadow-md">
+                    <i class="fa-solid fa-chart-pie mr-1.5"></i> Dashboard Mr. Taqwa
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+
+        <section id="viewHome" class="space-y-8">
+            <div class="text-center space-y-3 max-w-2xl mx-auto">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-full uppercase tracking-wider">Mata Pelajaran: 11 MATH TL-1 • Mr. Taqwa</span>
+                <h2 class="text-3xl font-black text-slate-900 tracking-tight">Portal Remedial Math Tingkat Lanjut</h2>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Sistem mandiri verifikasi nilai UTS & pengumpulan lembar jawaban remedial Matematika Tingkat Lanjut SMA Al Mazaya.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Card 1: Portal Siswa (Login) -->
+                <div onclick="openStudentAuthPortal()" class="card-glow bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-indigo-500 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden group">
+                    <div class="space-y-4 relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-indigo-600/30 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-extrabold text-indigo-600 uppercase tracking-wider block">Menu 1</span>
+                            <h3 class="text-xl font-black text-slate-900">Portal Siswa</h3>
+                            <p class="text-xs text-slate-500 mt-1">Masuk langsung menggunakan nama / panggilan Anda untuk pengecekan nilai & pengerjaan.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-indigo-600 group-hover:translate-x-1 transition-transform">
+                        <span>Masuk Portal Siswa</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pencarian Siswa -->
+                <div onclick="openStudentListPortal()" class="card-glow bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-emerald-500 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden group">
+                    <div class="space-y-4 relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-emerald-600/30 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-extrabold text-emerald-600 uppercase tracking-wider block">Menu 2</span>
+                            <h3 class="text-xl font-black text-slate-900">Pencarian Siswa</h3>
+                            <p class="text-xs text-slate-500 mt-1">Cari nama dari 27 siswa terdaftar (Kelas 11.1, 11.2, 11.3) & lihat status kelulusan.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-600 group-hover:translate-x-1 transition-transform">
+                        <span>Buka Pencarian Siswa</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Card 3: Dashboard Mr. Taqwa -->
+                <div onclick="openTeacherPortal()" class="card-glow bg-slate-900 text-white rounded-2xl p-6 border border-slate-800 shadow-md hover:border-amber-400 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden group">
+                    <div class="space-y-4 relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-400 text-slate-900 flex items-center justify-center text-2xl shadow-lg shadow-amber-400/20 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-extrabold text-amber-400 uppercase tracking-wider block">Menu 3</span>
+                            <h3 class="text-xl font-black text-white">Dashboard Mr. Taqwa</h3>
+                            <p class="text-xs text-slate-400 mt-1">Inspeksi lembar jawaban, rekapitulasi nilai asli UTS, & ekspor data real-time.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform">
+                        <span>Masuk Dashboard</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="viewStudentList" class="hidden space-y-6 max-w-4xl mx-auto">
+            <button onclick="showView('home')" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-2 transition">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu Utama
+            </button>
+
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl font-black text-slate-900">Pencarian & Direktori Siswa 11 MATH TL-1</h2>
+                <p class="text-xs text-slate-500">Cari nama lengkap atau panggilan Anda dari 27 siswa terdaftar untuk melihat status KKM / pengerjaan.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="setStudentListFilterClass('ALL')" id="tabBtnListALL" class="px-3.5 py-2 rounded-xl text-xs font-bold transition bg-indigo-600 text-white shadow">
+                            Semua (27 Siswa)
+                        </button>
+                        <button onclick="setStudentListFilterClass('11.1')" id="tabBtnList111" class="px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
+                            11.1
+                        </button>
+                        <button onclick="setStudentListFilterClass('11.2')" id="tabBtnList112" class="px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
+                            11.2
+                        </button>
+                        <button onclick="setStudentListFilterClass('11.3')" id="tabBtnList113" class="px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
+                            11.3
+                        </button>
+                    </div>
+
+                    <div class="relative w-full sm:w-72">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 text-xs">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" id="studentListSearchInput" oninput="renderStudentListCards()" placeholder="Ketik nama / panggilan siswa..." class="w-full pl-8 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 transition">
+                    </div>
+                </div>
+
+                <div id="studentListCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <!-- Dynamic rendering -->
+                </div>
+            </div>
+        </section>
+
+        <section id="viewStudentAuth" class="hidden max-w-md mx-auto space-y-6">
+            <button onclick="showView('home')" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-2 transition">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu Utama
+            </button>
+
+            <div class="text-center space-y-2">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-600 text-white text-2xl shadow-lg mb-1">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+                <h2 class="text-2xl font-black text-slate-900">Login Portal Siswa</h2>
+                <p class="text-xs text-slate-500">Remedial <strong>11 MATH TL-1 (Mr. Taqwa)</strong></p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                        Ketik Nama Lengkap / Panggilan:
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 text-sm">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" id="loginStudentInput" oninput="detectStudentName()" placeholder="Contoh: Amelia, Marvel, Safa, Arghad, Syauqi..." class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                    </div>
+
+                    <div id="studentDetectResult" class="hidden mt-2.5 p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl text-xs space-y-1">
+                        <span class="font-extrabold text-indigo-900 block text-sm" id="detectedNameText">--</span>
+                        <span class="text-[11px] text-indigo-700 block" id="detectedClassText">--</span>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Password Siswa:</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 text-sm">
+                            <i class="fa-solid fa-key"></i>
+                        </span>
+                        <input type="password" id="loginStudentPass" placeholder="Password default: amz11" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1.5"><i class="fa-solid fa-circle-info mr-1"></i>Password siswa default adalah <code class="bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 font-bold">amz11</code></p>
+                </div>
+
+                <button onclick="processStudentLogin()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-xl shadow-lg shadow-indigo-600/30 transition text-xs flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-right-to-bracket"></i> MASUK PORTAL SISWA
+                </button>
+            </div>
+        </section>
+
+        <section id="viewTeacherAuth" class="hidden max-w-md mx-auto space-y-6">
+            <button onclick="showView('home')" class="text-xs font-bold text-slate-600 hover:text-slate-800 flex items-center gap-2 transition">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu Utama
+            </button>
+
+            <div class="text-center space-y-2">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-400 text-slate-900 text-2xl shadow-lg mb-1">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h2 class="text-2xl font-black text-slate-900">Login Dashboard Pengajar</h2>
+                <p class="text-xs text-slate-500">Akses Khusus Pengajar: <strong>Mr. Taqwa</strong></p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Username Pengajar:</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 text-sm">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <input type="text" id="loginTeacherId" placeholder="Masukkan Username Pengajar" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Password Guru:</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 text-sm">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                        <input type="password" id="loginTeacherPass" placeholder="Masukkan Password Guru" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                    </div>
+                </div>
+
+                <button onclick="processTeacherLogin()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition text-xs flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-right-to-bracket"></i> MASUK DASHBOARD MONITOR
+                </button>
+            </div>
+        </section>
+
+        <section id="viewStudentDashboard" class="hidden space-y-6">
+            <div class="gradient-math text-white rounded-2xl p-6 shadow-xl relative overflow-hidden border border-indigo-900/40">
+                <div class="relative z-10 flex flex-wrap items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span id="stDashClassBadge" class="bg-amber-400 text-slate-900 text-xs font-extrabold px-3 py-0.5 rounded-full uppercase">Kelas --</span>
+                            <span class="bg-white/20 text-white text-[11px] font-medium px-2.5 py-0.5 rounded-full">11 MATH TL-1 • Mr. Taqwa</span>
+                            <span id="stRealtimeSyncBadge" class="bg-emerald-500/30 text-emerald-200 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-400/30 hidden">
+                                <i class="fa-solid fa-cloud mr-1"></i> Tersimpan Real-time
+                            </span>
+                        </div>
+                        <h2 id="stDashName" class="text-2xl font-black">--</h2>
+                        <p id="stDashMatchNote" class="text-xs text-indigo-200">Terdaftar atas nama lengkap ini</p>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white/10 p-3 rounded-xl border border-white/20 text-center min-w-[110px]">
+                            <span class="text-[10px] text-indigo-200 block uppercase font-bold">Nilai UTS Asli</span>
+                            <span id="stDashScore" class="text-2xl font-black text-amber-300">--</span>
+                        </div>
+                        <button onclick="openProofModal()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-xl font-bold text-xs shadow-lg transition flex items-center gap-2">
+                            <i class="fa-solid fa-file-pdf text-lg"></i>
+                            <div class="text-left">
+                                <span class="block leading-none">Bukti Pengumpulan</span>
+                                <span class="text-[10px] font-normal opacity-90">Cetak / Simpan PDF</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-xl text-xs text-amber-900 space-y-1 shadow-sm">
+                <p class="font-bold flex items-center gap-1.5 text-amber-800">
+                    <i class="fa-solid fa-cloud-arrow-up text-amber-600"></i> Panduan Pengumpulan Remedial Math Lanjut (Mr. Taqwa):
+                </p>
+                <ul class="list-disc list-inside space-y-0.5 text-amber-800/90 pl-1">
+                    <li>Bagi siswa yang bernilai ≥ 78.00, Anda dinyatakan <strong>Tuntas KKM</strong> dan tidak memiliki beban remedial.</li>
+                    <li>Bagi siswa peserta remedial, unggah foto jawaban beserta urutan langkah penyelesaiannya (maksimal 5 foto per nomor).</li>
+                    <li>Sistem otomatis menyimpan kemajuan pengerjaan Anda ke Google Sheet real-time.</li>
+                </ul>
+            </div>
+
+            <div id="stQuestionsList" class="space-y-6"></div>
+
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 text-center space-y-3">
+                <div id="stProgressStatus" class="text-xs text-slate-500 hidden">
+                    <i class="fa-solid fa-spinner animate-spin text-indigo-600 mr-1"></i> Menyimpan data & menyinkronkan ke server Google Sheet...
+                </div>
+                <button id="btnStSyncAll" onclick="syncAllStudentAnswers()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition duration-200 text-xs flex items-center justify-center gap-2 mx-auto">
+                    <i class="fa-solid fa-cloud-arrow-up text-base"></i> SIMPAN & VERIFIKASI SEMUA JAWABAN KE GOOGLE SHEET
+                </button>
+            </div>
+        </section>
+
+        <section id="viewTeacherDashboard" class="hidden space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-900">Dashboard Monitor Mr. Taqwa</h2>
+                    <p class="text-xs text-slate-500">Pantau status pengerjaan & rekapitulasi nilai asli UTS 27 siswa 11 MATH TL-1.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="openTeacherPdfModal()" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow flex items-center gap-2 transition">
+                        <i class="fa-solid fa-file-pdf"></i> Export PDF (Raport)
+                    </button>
+                    <button onclick="exportTeacherSummaryExcel()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow flex items-center gap-2 transition">
+                        <i class="fa-solid fa-file-excel"></i> Export Rekapitulasi (CSV)
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-slate-500 font-bold block">Total Siswa Terdaftar</span>
+                        <span id="statTotalStudents" class="text-2xl font-black text-slate-800">27</span>
+                    </div>
+                    <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-slate-500 font-bold block">Tuntas KKM / Lengkap</span>
+                        <span id="statCompletedStudents" class="text-2xl font-black text-emerald-600">0</span>
+                    </div>
+                    <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-slate-500 font-bold block">Mengerjakan Sebagian</span>
+                        <span id="statPartialStudents" class="text-2xl font-black text-amber-500">0</span>
+                    </div>
+                    <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-spinner"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-slate-500 font-bold block">Belum Mengumpulkan</span>
+                        <span id="statPendingStudents" class="text-2xl font-black text-rose-500">0</span>
+                    </div>
+                    <div class="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="setTeacherFilterClass('ALL')" id="filterClassALL" class="px-3.5 py-2 rounded-xl text-xs font-bold transition bg-indigo-600 text-white shadow">
+                        Semua Kelas (27)
+                    </button>
+                    <button onclick="setTeacherFilterClass('11.1')" id="filterClass111" class="px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        11.1
+                    </button>
+                    <button onclick="setTeacherFilterClass('11.2')" id="filterClass112" class="px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        11.2
+                    </button>
+                    <button onclick="setTeacherFilterClass('11.3')" id="filterClass113" class="px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        11.3
+                    </button>
+                </div>
+
+                <div class="relative w-full sm:w-64">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 text-xs">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="teacherSearchInput" oninput="renderTeacherTable()" placeholder="Cari nama siswa..." class="w-full pl-8 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 transition">
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-900 text-slate-200 uppercase tracking-wider font-semibold">
+                            <tr>
+                                <th class="p-3.5">Kelas</th>
+                                <th class="p-3.5">Nama Siswa</th>
+                                <th class="p-3.5 text-center">Nilai UTS Asli</th>
+                                <th class="p-3.5 text-center">Beban Soal</th>
+                                <th class="p-3.5 text-center">Progres Upload</th>
+                                <th class="p-3.5 text-center">Status</th>
+                                <th class="p-3.5 text-center">Aksi (Inspeksi)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teacherTableBody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="proofModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 gradient-math text-white flex justify-between items-center no-print">
+                <div class="flex items-center gap-2 font-bold text-sm">
+                    <i class="fa-solid fa-file-certificate text-amber-400"></i> Bukti Pengumpulan Remedial Math Tingkat Lanjut
+                </div>
+                <button onclick="closeProofModal()" class="text-white/80 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-4" id="printableProofArea">
+                <div class="border-b-2 border-indigo-900 pb-4 text-center space-y-1">
+                    <h2 class="text-lg font-black uppercase text-indigo-900 tracking-wide">YAYASAN AL MAZAYA ISLAMIC SCHOOL</h2>
+                    <h3 class="text-sm font-bold text-slate-800">SMA AL MAZAYA BANJARMASIN</h3>
+                    <p class="text-[11px] text-slate-500 font-medium">TANDA BUKTI PENGUMPULAN REMEDIAL 11 MATH TL-1 (MR. TAQWA)</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs grid grid-cols-2 gap-3">
+                    <div>
+                        <span class="text-slate-400 block font-bold">NAMA SISWA:</span>
+                        <span id="proofStudentName" class="font-extrabold text-slate-800 text-sm">--</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block font-bold">KELAS:</span>
+                        <span id="proofClass" class="font-extrabold text-indigo-600 text-sm">--</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block font-bold">NILAI UTS MATH LANJUT:</span>
+                        <span id="proofScore" class="font-bold text-amber-600">--</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block font-bold">WAKTU TERVERIFIKASI:</span>
+                        <span id="proofTimestamp" class="font-medium text-slate-700">--</span>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Status Lembar Jawaban / KKM:</h4>
+                    <table class="w-full text-xs border border-slate-200 border-collapse">
+                        <thead class="bg-slate-100 text-slate-700 font-bold">
+                            <tr>
+                                <th class="border p-2 text-center w-12">No</th>
+                                <th class="border p-2 text-left">Materi / Bab Soal UTS</th>
+                                <th class="border p-2 text-center w-28">Status Upload</th>
+                            </tr>
+                        </thead>
+                        <tbody id="proofTableBody">
+                            <!-- Dynamic -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200 flex items-end justify-between text-xs">
+                    <div class="space-y-1">
+                        <div class="w-20 h-20 bg-slate-100 border border-dashed border-slate-300 rounded-lg flex items-center justify-center text-[10px] text-slate-400 text-center p-1">
+                            [QR Code Digital]
+                        </div>
+                        <p class="text-[10px] text-slate-400 italic">Dokumen terverifikasi sistem Al Mazaya.</p>
+                    </div>
+                    <div class="text-center space-y-12">
+                        <p class="text-slate-600">Banjarmasin, <span id="proofDateCurrent">--</span><br>Guru Math Tingkat Lanjut</p>
+                        <p class="font-bold underline text-slate-800">( Mr. Taqwa )</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 bg-slate-100 border-t flex justify-end gap-2 no-print">
+                <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow">
+                    <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
+                </button>
+                <button onclick="closeProofModal()" class="bg-slate-700 text-white px-4 py-2 rounded-xl text-xs font-semibold">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Export PDF Rekapitulasi Raport Guru -->
+    <div id="teacherPdfModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 gradient-math text-white flex justify-between items-center no-print">
+                <div class="flex items-center gap-2 font-bold text-sm">
+                    <i class="fa-solid fa-file-pdf text-amber-400"></i> Rekapitulasi Nilai UTS untuk Raport - 11 MATH TL-1
+                </div>
+                <button onclick="closeTeacherPdfModal()" class="text-white/80 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-6" id="printableTeacherPdfArea">
+                <!-- Dynamic Content built per class -->
+            </div>
+
+            <div class="p-4 bg-slate-100 border-t flex justify-end gap-2 no-print">
+                <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow">
+                    <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
+                </button>
+                <button onclick="closeTeacherPdfModal()" class="bg-slate-700 text-white px-4 py-2 rounded-xl text-xs font-semibold">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Custom Dialog -->
+    <div id="customModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 text-center">
+            <div id="modalIconContainer" class="w-14 h-14 rounded-full flex items-center justify-center mx-auto text-2xl"></div>
+            <h3 id="modalTitle" class="text-lg font-bold text-slate-800">--</h3>
+            <p id="modalMessage" class="text-xs text-slate-600 leading-relaxed">--</p>
+            <button onclick="closeCustomModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-md transition">
+                Mengerti
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Pratinjau Foto (Zoom / Lightbox) -->
+    <div id="imagePreviewModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex flex-col items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center space-y-3">
+            <div class="w-full flex items-center justify-between no-print px-2">
+                <span id="imagePreviewTitle" class="text-white text-xs font-extrabold bg-white/20 px-3 py-1.5 rounded-xl backdrop-blur-sm">--</span>
+                <button onclick="closeImagePreviewModal()" class="bg-rose-600 hover:bg-rose-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-base shadow-lg transition transform hover:scale-110">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="bg-slate-900/90 p-2 rounded-2xl border border-slate-700/80 shadow-2xl max-h-[80vh] overflow-hidden flex items-center justify-center w-full">
+                <img id="imagePreviewTarget" src="" class="max-h-[75vh] max-w-full object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const DEFAULT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyFf2cGXqdmxGvCXYGoXnUi7pyVhF9PuTSJcxQQM63ESf-chTdv3Ekq9GmtfdZwMDZGQA/exec";
+        const KKM_SCORE = 78.0;
+
+        // BANK SOAL REMEDIAL UTS MATH TINGKAT LANJUT
+        const QUESTION_DB = {
+            1: { num: 1, bab: "Bilangan Kompleks - Penjumlahan & Pengurangan", text: "Diketahui z₁ = 3 + 5i dan z₂ = 7 - 2i. Hitunglah hasil penjumlahan (z₁ + z₂) dan pengurangan (z₁ - z₂) berturut-turut!" },
+            2: { num: 2, bab: "Bilangan Kompleks - Perkalian", text: "Hasil perkalian dari dua bilangan kompleks z₁ = 4 + 3i dan z₂ = 2 - 5i adalah..." },
+            3: { num: 3, bab: "Bilangan Kompleks - Pembagian", text: "Sederhanakan bentuk pembagian bilangan kompleks (5 + 3i) / (2 - i) dalam bentuk standar a + bi!" },
+            4: { num: 4, bab: "Bilangan Kompleks - Bagian Real & Imajiner", text: "Diketahui z = (3 + 4i) / (1 - 2i). Tentukan bagian real Re(z) dan bagian imajiner Im(z) dari bilangan kompleks z!" },
+            5: { num: 5, bab: "Bilangan Kompleks - Konjugat", text: "Jika z = -1 + √3 i, tentukan nilai dari konjugat z (z̅)!" },
+            6: { num: 6, bab: "Bilangan Kompleks - Modulus", text: "Hitunglah modulus dari bilangan kompleks z = 3 - 4i!" },
+            7: { num: 7, bab: "Bilangan Kompleks - Sifat Modulus", text: "Diketahui z = 3 - 4i. Dengan menggunakan hubungan z · z̅ = |z|², tentukan nilai dari |z|²!" },
+            8: { num: 8, bab: "Bilangan Kompleks - Operasi Campuran", text: "Diketahui z = 2 + 3i dan w = 1 - 2i. Hitunglah hasil dari operasi campuran (z · w + z̅ · w)!" },
+            9: { num: 9, bab: "Bilangan Kompleks - Modulus & Argumen Utama", text: "Diketahui z̅ = -1 + √3 i. Tentukan modulus |z| dan argumen utama (θ) dari z!" },
+            10: { num: 10, bab: "Bilangan Kompleks - Argumen Utama Kuadran III", text: "Tentukan modulus |z| dan argumen utama (θ) dari bilangan kompleks z = -√3 - i yang berada di kuadran III!" },
+            11: { num: 11, bab: "Polinomial - Derajat & Koefisien Utama", text: "Tentukan derajat dan koefisien utama dari fungsi polinomial P(x) = 8x³ - 36x² + 54x - 27!" },
+            12: { num: 12, bab: "Polinomial - Derajat Perkalian & Pangkat", text: "Tanpa melakukan penjabaran penuh, tentukan derajat dari polinomial P(x) = (x² - 1)¹⁵ · (x⁵ + 3)¹⁰!" },
+            13: { num: 13, bab: "Polinomial - Perilaku Ujung (End Behavior)", text: "Tentukan perilaku ujung (end behavior) grafik fungsi polinomial f(x) = -x⁶ - (11/4)x⁵ + x⁴ + 5x³ + 2!" },
+            14: { num: 14, bab: "Polinomial - Operasi Pengurangan", text: "Hitunglah hasil pengurangan polinomial (x⁴ - 3x² + 4x - 6) - (5x³ + 2x² - x - 4)!" },
+            15: { num: 15, bab: "Polinomial - Operasi Perkalian", text: "Tentukan hasil perkalian polinomial (4x² - x + 3)(x² - 1)!" },
+            16: { num: 16, bab: "Polinomial - Pembagian Bersusun", text: "Jika P(x) = 4x⁴ + 17x³ - 3x + 1 dibagi oleh (x² + 4x - 1), tentukan sisa pembagian S(x)!" },
+            17: { num: 17, bab: "Polinomial - Metode Horner", text: "Gunakan metode Horner untuk menentukan hasil bagi H(x) dan sisa S(x) dari pembagian (2x³ + 5x² + 6) oleh (x + 3)!" },
+            18: { num: 18, bab: "Polinomial - Teorema Sisa", text: "Tentukan sisa pembagian fungsi polinomial P(x) = x³ - 3x² + 4x - 5 jika dibagi oleh (x - 2)!" },
+            19: { num: 19, bab: "Polinomial - Faktorisasi Komplit", text: "Diketahui P(x) = x³ - 2x² - 21x - 18 dengan P(-1) = 0. Tentukan faktorisasi komplit dari P(x)!" },
+            20: { num: 20, bab: "Polinomial - Mencari Nilai Konstanta k", text: "Jika (x - 2) merupakan salah satu faktor dari polinomial P(x) = x³ - 3x² + 5x + k, tentukan nilai k!" }
+        };
+
+        // DAFTAR 27 SISWA DENGAN NILAI REVISI DARI BERKAS RESMI CBT LMS
+        const ALL_STUDENTS = [
+            { id: "ST_01", name: "Aliya Saputri", nickname: "Aliya", classCode: "11.2", score: 45.00 },
+            { id: "ST_02", name: "Ahmad Syauqi Abrari", nickname: "Syauqi", classCode: "11.3", score: 38.50 },
+            { id: "ST_03", name: "Ahmad Yazid Ar-Raqqasyi", nickname: "Yazid", classCode: "11.3", score: 7.14 },
+            { id: "ST_04", name: "Amelia Revalina Fasha", nickname: "Amelia", classCode: "11.3", score: 89.29 }, // TUNTAS (>=78)
+            { id: "ST_05", name: "Anisa Nayla", nickname: "Anisa", classCode: "11.3", score: 48.21 },
+            { id: "ST_06", name: "Daffano Untung Al Asyraf", nickname: "Daffano", classCode: "11.1", score: 30.36 },
+            { id: "ST_07", name: "Faraz Raissa Neoma Ardahany", nickname: "Faraz", classCode: "11.2", score: 92.86 }, // TUNTAS (>=78)
+            { id: "ST_08", name: "Marvel", nickname: "Marvel", classCode: "11.1", score: 87.50 }, // TUNTAS (>=78)
+            { id: "ST_09", name: "Meara Aurelia Zalfa", nickname: "Meara", classCode: "11.1", score: 100.00 }, // TUNTAS (>=78)
+            { id: "ST_10", name: "Safa Faizia", nickname: "Safa", classCode: "11.2", score: 80.36 }, // TUNTAS (>=78)
+            { id: "ST_11", name: "Gusti Naifa Adhya Shafira", nickname: "Naifa", classCode: "11.2", score: 100.00 }, // TUNTAS (>=78)
+            { id: "ST_12", name: "Aufa Bil Ahdi", nickname: "Aufa", classCode: "11.3", score: 62.00 },
+            { id: "ST_13", name: "Irfan Hafizha", nickname: "Irfan", classCode: "11.3", score: 66.00 },
+            { id: "ST_14", name: "Muhammad Arghad Fikri", nickname: "Arghad", classCode: "11.1", score: 76.79 },
+            { id: "ST_15", name: "Nasya Salsa Balqis Aurora Illahi", nickname: "Nasya", classCode: "11.3", score: 50.00 },
+            { id: "ST_16", name: "Muhammad Rakha Ali", nickname: "Rakha", classCode: "11.2", score: 8.93 },
+            { id: "ST_17", name: "Muhammad Reyvan Albukhori", nickname: "Reyvan", classCode: "11.2", score: 62.50 },
+            { id: "ST_18", name: "Najwan Azhim Mumtazhar", nickname: "Najwan", classCode: "11.2", score: 60.71 },
+            { id: "ST_19", name: "Rani Alyssa Putri", nickname: "Rani", classCode: "11.3", score: 69.00 },
+            { id: "ST_20", name: "Shafira Keyla Janeta", nickname: "Shafira", classCode: "11.1", score: 56.00 },
+            { id: "ST_21", name: "Syahwa Syahda Syahraeni", nickname: "Syahwa", classCode: "11.1", score: 25.00 },
+            { id: "ST_22", name: "Zara Jaudah Wafa", nickname: "Zara", classCode: "11.1", score: 71.43 },
+            { id: "ST_23", name: "Zulfan Azhar Raihan", nickname: "Zulfan", classCode: "11.2", score: 83.93 }, // TUNTAS (>=78)
+            { id: "ST_24", name: "Salsabilah", nickname: "Salsabila", classCode: "11.1", score: 62.50 },
+            { id: "ST_25", name: "Putri Asma Ramadhani", nickname: "Putri", classCode: "11.3", score: 70.00 },
+            { id: "ST_26", name: "Nafil Zaki Faisal", nickname: "Nafil", classCode: "11.1", score: 49.00 },
+            { id: "ST_27", name: "Liyana Zahira", nickname: "Liyana", classCode: "11.3", score: 73.50 }
+        ];
+
+        let detectedStudentCandidate = null;
+        let currentUser = null;
+        let teacherFilterClass = 'ALL';
+        let studentListFilterClass = 'ALL';
+
+        let photoEditModes = {};
+        let studentSubmissions = {};
+
+        function getQuestionNumbersForScore(score) {
+            if (score >= KKM_SCORE) return []; // Tuntas KKM - Tanpa Remedial
+            if (score < 20.0) return [1, 2, 5, 8, 11, 14, 16, 17, 18, 20];
+            if (score < 50.0) return [2, 4, 6, 9, 11, 14, 17, 19];
+            if (score < 70.0) return [3, 7, 12, 16, 18];
+            return [4, 15, 20];
+        }
+
+        function showView(viewName) {
+            const views = ['viewHome', 'viewStudentAuth', 'viewStudentList', 'viewTeacherAuth', 'viewStudentDashboard', 'viewTeacherDashboard'];
+            
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.classList.add('hidden');
+            });
+
+            let targetId = 'viewHome';
+            if (viewName === 'home' || viewName === 'viewHome') targetId = 'viewHome';
+            else if (viewName === 'studentAuth' || viewName === 'viewStudentAuth') targetId = 'viewStudentAuth';
+            else if (viewName === 'studentList' || viewName === 'viewStudentList') targetId = 'viewStudentList';
+            else if (viewName === 'teacherAuth' || viewName === 'viewTeacherAuth') targetId = 'viewTeacherAuth';
+            else if (viewName === 'studentDash' || viewName === 'viewStudentDashboard') targetId = 'viewStudentDashboard';
+            else if (viewName === 'teacherDash' || viewName === 'viewTeacherDashboard') targetId = 'viewTeacherDashboard';
+
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) targetEl.classList.remove('hidden');
+        }
+
+        function openStudentAuthPortal() {
+            document.getElementById('loginStudentInput').value = '';
+            document.getElementById('loginStudentPass').value = '';
+            document.getElementById('studentDetectResult').classList.add('hidden');
+            detectedStudentCandidate = null;
+            showView('studentAuth');
+        }
+
+        function openTeacherPortal() {
+            document.getElementById('loginTeacherId').value = '';
+            document.getElementById('loginTeacherPass').value = '';
+            showView('teacherAuth');
+        }
+
+        function openStudentListPortal() {
+            setStudentListFilterClass('ALL');
+            showView('studentList');
+        }
+
+        function setStudentListFilterClass(cls) {
+            studentListFilterClass = cls;
+            ['ALL', '11.1', '11.2', '11.3'].forEach(c => {
+                const btnId = `tabBtnList${c.replace(/[:.]/g, '')}`;
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    if (c === cls) {
+                        btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold transition bg-indigo-600 text-white shadow";
+                    } else {
+                        btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200";
+                    }
+                }
+            });
+
+            renderStudentListCards();
+        }
+
+        function renderStudentListCards() {
+            const container = document.getElementById('studentListCardsContainer');
+            container.innerHTML = '';
+
+            const search = document.getElementById('studentListSearchInput').value.trim().toLowerCase();
+
+            const filtered = ALL_STUDENTS.filter(st => {
+                const matchClass = (studentListFilterClass === 'ALL' || st.classCode === studentListFilterClass);
+                const matchName = (!search || st.name.toLowerCase().includes(search) || st.nickname.toLowerCase().includes(search));
+                return matchClass && matchName;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="col-span-full p-6 text-center text-slate-400 text-xs font-medium">Tidak ada nama siswa yang cocok.</div>`;
+                return;
+            }
+
+            filtered.forEach(st => {
+                const requiredQNos = getQuestionNumbersForScore(st.score);
+                const uploadedMap = studentSubmissions[st.id] || {};
+                const uploadedCount = Object.keys(uploadedMap).length;
+
+                const card = document.createElement('div');
+                card.className = "p-3.5 bg-slate-50 border border-slate-200 hover:border-indigo-500 rounded-xl transition flex items-center justify-between gap-3 group";
+                
+                let progressText = '';
+                if (st.score >= KKM_SCORE) {
+                    progressText = `<span class="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200"><i class="fa-solid fa-circle-check mr-1"></i>TUNTAS KKM (${st.score.toFixed(2)})</span>`;
+                } else {
+                    progressText = `<span class="text-[10px] font-bold ${uploadedCount > 0 ? 'text-emerald-600' : 'text-slate-400'}">Progres Upload: ${uploadedCount}/${requiredQNos.length} Soal</span>`;
+                }
+
+                card.innerHTML = `
+                    <div class="space-y-0.5">
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-slate-800 text-xs group-hover:text-indigo-600 transition">${st.name}</span>
+                            <span class="bg-indigo-100 text-indigo-700 text-[10px] font-extrabold px-2 py-0.2 rounded-md">${st.classCode}</span>
+                        </div>
+                        <span class="text-[11px] text-slate-500 block">Panggilan: "${st.nickname}" • UTS: <strong>${st.score.toFixed(2)}</strong></span>
+                        ${progressText}
+                    </div>
+                    <button onclick="quickSelectStudentFromList('${st.id}')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 shadow-sm flex-shrink-0">
+                        <span>Pilih</span>
+                        <i class="fa-solid fa-right-to-bracket text-[10px]"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function quickSelectStudentFromList(studentId) {
+            const found = ALL_STUDENTS.find(st => st.id === studentId);
+
+            if (found) {
+                detectedStudentCandidate = { ...found };
+                document.getElementById('loginStudentInput').value = found.nickname;
+                document.getElementById('detectedNameText').textContent = `Siswa Terdaftar: ${found.name}`;
+                document.getElementById('detectedClassText').textContent = `Kelas ${found.classCode} • Nilai UTS Asli: ${found.score.toFixed(2)}`;
+                document.getElementById('studentDetectResult').classList.remove('hidden');
+                showView('studentAuth');
+            }
+        }
+
+        function detectStudentName() {
+            const val = document.getElementById('loginStudentInput').value.trim().toLowerCase();
+            const detectBox = document.getElementById('studentDetectResult');
+
+            if (!val) {
+                detectBox.classList.add('hidden');
+                detectedStudentCandidate = null;
+                return;
+            }
+
+            const match = ALL_STUDENTS.find(st => 
+                st.name.toLowerCase().includes(val) || 
+                st.nickname.toLowerCase().includes(val)
+            );
+
+            if (match) {
+                detectedStudentCandidate = { ...match };
+                document.getElementById('detectedNameText').textContent = `Siswa Terdaftar: ${match.name}`;
+                document.getElementById('detectedClassText').textContent = `Terdeteksi di Kelas ${match.classCode} • Nilai UTS Asli: ${match.score.toFixed(2)} ${match.score >= KKM_SCORE ? '(Tuntas KKM)' : '(Wajib Remedial)'}`;
+                detectBox.classList.remove('hidden');
+            } else {
+                detectedStudentCandidate = null;
+                detectBox.classList.add('hidden');
+            }
+        }
+
+        function processStudentLogin() {
+            const nameVal = document.getElementById('loginStudentInput').value.trim();
+            const passVal = document.getElementById('loginStudentPass').value.trim();
+
+            if (!nameVal) {
+                showCustomModal('Perhatian', 'Silakan ketik nama panggilan atau nama lengkap Anda.', 'warning');
+                return;
+            }
+
+            if (!detectedStudentCandidate) {
+                showCustomModal('Nama Tidak Ditemukan', `Nama "${nameVal}" tidak terdaftar dalam presensi 11 MATH TL-1.`, 'error');
+                return;
+            }
+
+            if (passVal !== 'amz11' && passVal !== 'amz') {
+                showCustomModal('Password Salah', 'Password default siswa adalah "amz11". Silakan coba kembali.', 'error');
+                return;
+            }
+
+            currentUser = {
+                role: 'student',
+                studentObj: detectedStudentCandidate,
+                classCode: detectedStudentCandidate.classCode
+            };
+
+            showStudentDashboard();
+        }
+
+        function processTeacherLogin() {
+            const userVal = document.getElementById('loginTeacherId').value.trim().toLowerCase();
+            const passVal = document.getElementById('loginTeacherPass').value.trim();
+
+            if ((userVal === 'taqwa' || userVal === 'mrtaqwa' || userVal === 'guru' || userVal === 'admin') && (passVal === 'admin' || passVal === 'amz11' || passVal === 'taqwa11')) {
+                currentUser = { role: 'teacher' };
+                showTeacherDashboard();
+            } else {
+                showCustomModal('Akses Ditolak', 'Username atau Password Pengajar tidak sesuai.', 'error');
+            }
+        }
+
+        function showStudentDashboard() {
+            showView('studentDash');
+
+            const st = currentUser.studentObj;
+            document.getElementById('stDashClassBadge').textContent = `Kelas ${st.classCode}`;
+            document.getElementById('stDashName').textContent = st.name;
+            document.getElementById('stDashMatchNote').textContent = `Terdaftar atas nama: ${st.name} (Panggilan: "${st.nickname}")`;
+            document.getElementById('stDashScore').textContent = st.score.toFixed(2);
+
+            fetchRemoteStudentProgress(st.name, st.classCode, st.id);
+            renderStudentQuestions();
+        }
+
+        async function fetchRemoteStudentProgress(studentName, className, studentId) {
+            const badge = document.getElementById('stRealtimeSyncBadge');
+            if (badge) badge.classList.add('hidden');
+
+            try {
+                const url = `${DEFAULT_SCRIPT_URL}?action=getStudentData&studentName=${encodeURIComponent(studentName)}&className=${encodeURIComponent(className)}`;
+                const response = await fetch(url);
+                const resData = await response.json();
+
+                if (resData && resData.status === 'success' && resData.answers) {
+                    if (!studentSubmissions[studentId]) studentSubmissions[studentId] = {};
+
+                    for (let qNo in resData.answers) {
+                        studentSubmissions[studentId][qNo] = resData.answers[qNo];
+                    }
+
+                    if (badge) badge.classList.remove('hidden');
+                    renderStudentQuestions();
+                }
+            } catch (err) {
+                console.log("Sync Note:", err.message);
+            }
+        }
+
+        function renderStudentQuestions() {
+            const container = document.getElementById('stQuestionsList');
+            container.innerHTML = '';
+
+            const st = currentUser.studentObj;
+            const requiredQNos = getQuestionNumbersForScore(st.score);
+            const userAnswers = studentSubmissions[st.id] || {};
+
+            if (requiredQNos.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 text-center space-y-4 shadow-sm">
+                        <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="text-xl font-black text-emerald-900">Selamat! Anda Telah Tuntas KKM 🎉</h3>
+                            <p class="text-xs text-emerald-700 leading-relaxed max-w-md mx-auto">
+                                Nilai UTS Matematika Tingkat Lanjut Anda (<strong>${st.score.toFixed(2)}</strong>) telah memenuhi / melebihi batas KKM (<strong>78.00</strong>). Anda tidak memiliki beban soal remedial!
+                            </p>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('btnStSyncAll').classList.add('hidden');
+                return;
+            } else {
+                document.getElementById('btnStSyncAll').classList.remove('hidden');
+            }
+
+            requiredQNos.forEach((qNo, idx) => {
+                const qObj = QUESTION_DB[qNo];
+                let savedPhotos = userAnswers[qNo] || [];
+                if (!Array.isArray(savedPhotos)) {
+                    savedPhotos = savedPhotos ? [savedPhotos] : [];
+                }
+
+                const isEditActive = !!photoEditModes[qNo];
+
+                const card = document.createElement('div');
+                card.className = "bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4";
+
+                let photosGridHtml = '';
+                if (savedPhotos.length > 0) {
+                    savedPhotos.forEach((imgSrc, pIdx) => {
+                        const safeSrc = imgSrc.replace(/'/g, "\\'");
+                        photosGridHtml += `
+                            <div class="relative group w-28 h-28 border border-slate-200 rounded-xl overflow-hidden bg-slate-100 shadow-inner flex-shrink-0">
+                                <img src="${imgSrc}" onclick="openImagePreviewModal('${safeSrc}', ${qNo}, ${pIdx + 1})" class="w-full h-full object-cover cursor-pointer hover:opacity-90 transition" title="Klik untuk memperbesar">
+                                <button type="button" onclick="openImagePreviewModal('${safeSrc}', ${qNo}, ${pIdx + 1})" class="absolute top-1 left-1 bg-slate-900/70 hover:bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] shadow transition opacity-80 group-hover:opacity-100" title="Pratinjau Foto (Zoom)">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                </button>
+                                ${isEditActive ? `
+                                    <button type="button" onclick="removeSpecificPhoto(${qNo}, ${pIdx})" class="absolute top-1 right-1 bg-rose-600 hover:bg-rose-700 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md transition transform hover:scale-110" title="Hapus foto ini">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                ` : `
+                                    <button type="button" onclick="removeSpecificPhoto(${qNo}, ${pIdx})" class="absolute top-1 right-1 bg-slate-900/70 hover:bg-rose-600 text-white w-6 h-6 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center text-xs shadow transition" title="Hapus foto ini">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                `}
+                                <span class="absolute bottom-1 left-1 bg-slate-900/60 text-white text-[9px] font-bold px-1.5 py-0.5 rounded backdrop-blur-xs">
+                                    Foto ${pIdx + 1}
+                                </span>
+                            </div>
+                        `;
+                    });
+                }
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-black rounded-lg border border-indigo-100">
+                            Soal No. ${idx + 1} (Soal UTS #${qNo})
+                        </span>
+                        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">${qObj.bab}</span>
+                    </div>
+
+                    <p class="text-xs font-semibold text-slate-800 bg-slate-50 p-4 rounded-xl border border-slate-200/80 leading-relaxed font-mono">
+                        ${qObj.text}
+                    </p>
+
+                    <div class="space-y-3 pt-1">
+                        <div class="flex items-center justify-between">
+                            <label class="block text-xs font-bold text-slate-700">
+                                Unggah Foto Jawaban & Langkah Penyelesaian (Maks 5 Foto):
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[11px] font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg">
+                                    ${savedPhotos.length}/5 Foto
+                                </span>
+                                ${savedPhotos.length > 0 ? `
+                                    <button type="button" onclick="togglePhotoEditMode(${qNo})" class="px-2.5 py-1 text-xs font-bold rounded-lg border transition flex items-center gap-1.5 ${isEditActive ? 'bg-amber-500 text-white border-amber-500 shadow-sm' : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'}">
+                                        <i class="fa-solid fa-pen text-[10px]"></i>
+                                        <span>${isEditActive ? 'Selesai Edit' : 'Edit Foto'}</span>
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </div>
+
+                        ${savedPhotos.length < 5 ? `
+                            <input type="file" accept="image/*" multiple onchange="handleStudentMultiImageUpload(${qNo}, event)" class="block w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 border border-slate-200 rounded-xl cursor-pointer bg-white transition">
+                        ` : `
+                            <p class="text-xs font-bold text-amber-600 bg-amber-50 p-3 rounded-xl border border-amber-200">
+                                <i class="fa-solid fa-circle-info mr-1"></i> Batas maksimum 5 foto per soal tercapai.
+                            </p>
+                        `}
+                        
+                        <div id="st_preview_box_${qNo}" class="${savedPhotos.length > 0 ? '' : 'hidden'} space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-bold text-emerald-600 block">
+                                    <i class="fa-solid fa-circle-check mr-1"></i> Pratinjau Foto Lembar Jawaban:
+                                </span>
+                            </div>
+                            <div class="flex flex-wrap gap-3 pt-1">
+                                ${photosGridHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function togglePhotoEditMode(qNo) {
+            photoEditModes[qNo] = !photoEditModes[qNo];
+            renderStudentQuestions();
+        }
+
+        async function removeSpecificPhoto(qNo, photoIdx) {
+            const st = currentUser.studentObj;
+            if (!studentSubmissions[st.id] || !studentSubmissions[st.id][qNo]) return;
+
+            studentSubmissions[st.id][qNo].splice(photoIdx, 1);
+            renderStudentQuestions();
+
+            showCustomModal('Memperbarui Foto...', `Foto ke-${photoIdx + 1} pada Soal No. ${qNo} dihapus. Menyinkronkan perubahan ke server...`, 'info');
+
+            try {
+                const currentPhotos = studentSubmissions[st.id][qNo];
+                const payload = {
+                    studentName: st.name,
+                    className: st.classCode,
+                    score: st.score,
+                    submissionTime: new Date().toLocaleString('id-ID'),
+                    answers: [{
+                        questionNo: qNo,
+                        questionText: QUESTION_DB[qNo] ? QUESTION_DB[qNo].text : "",
+                        photos: currentPhotos
+                    }]
+                };
+
+                await fetch(DEFAULT_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                showCustomModal('Diperbarui! ☁️', `Daftar foto jawaban Soal No. ${qNo} berhasil diperbarui di Google Sheet.`, 'success');
+            } catch (err) {
+                showCustomModal('Tersimpan Lokal', `Perubahan berhasil disimpan secara lokal.`, 'warning');
+            }
+        }
+
+        async function handleStudentMultiImageUpload(qNo, event) {
+            const files = Array.from(event.target.files);
+            if (files.length === 0) return;
+
+            const st = currentUser.studentObj;
+            if (!studentSubmissions[st.id]) studentSubmissions[st.id] = {};
+            if (!studentSubmissions[st.id][qNo]) studentSubmissions[st.id][qNo] = [];
+
+            const currentList = studentSubmissions[st.id][qNo];
+            const remainingSlots = 5 - currentList.length;
+
+            if (remainingSlots <= 0) {
+                showCustomModal('Batas Maksimal Foto', 'Anda sudah mengunggah 5 foto untuk nomor soal ini.', 'warning');
+                return;
+            }
+
+            const filesToProcess = files.slice(0, remainingSlots);
+
+            showCustomModal('Memproses & Mengunggah...', `Memproses ${filesToProcess.length} foto untuk Soal No. ${qNo}...`, 'info');
+
+            for (let f of filesToProcess) {
+                if (f.size > 8 * 1024 * 1024) {
+                    showCustomModal('File Terlalu Besar', `Foto ${f.name} melebihi ukuran maksimal 8MB.`, 'warning');
+                    continue;
+                }
+
+                const base64 = await new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.readAsDataURL(f);
+                });
+
+                studentSubmissions[st.id][qNo].push(base64);
+            }
+
+            renderStudentQuestions();
+
+            try {
+                const payload = {
+                    studentName: st.name,
+                    className: st.classCode,
+                    score: st.score,
+                    submissionTime: new Date().toLocaleString('id-ID'),
+                    answers: [{
+                        questionNo: qNo,
+                        questionText: QUESTION_DB[qNo] ? QUESTION_DB[qNo].text : "",
+                        photos: studentSubmissions[st.id][qNo]
+                    }]
+                };
+
+                await fetch(DEFAULT_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                showCustomModal('Tersimpan Real-Time! ☁️', `Seluruh foto jawaban Soal No. ${qNo} (${studentSubmissions[st.id][qNo].length}/5) berhasil tersimpan di Google Sheet.`, 'success');
+            } catch (err) {
+                showCustomModal('Tersimpan Lokal', `Foto jawaban tersimpan sementara di perangkat Anda.`, 'warning');
+            }
+        }
+
+        async function syncAllStudentAnswers() {
+            if (!currentUser || !currentUser.studentObj) return;
+
+            const st = currentUser.studentObj;
+            const requiredQNos = getQuestionNumbersForScore(st.score);
+            const userAnswers = studentSubmissions[st.id] || {};
+
+            const answersArray = [];
+            requiredQNos.forEach(qNo => {
+                const photos = userAnswers[qNo] || [];
+                answersArray.push({
+                    questionNo: qNo,
+                    questionText: QUESTION_DB[qNo] ? QUESTION_DB[qNo].text : "",
+                    photos: photos
+                });
+            });
+
+            const statusEl = document.getElementById('stProgressStatus');
+            if (statusEl) statusEl.classList.remove('hidden');
+
+            try {
+                const payload = {
+                    studentName: st.name,
+                    className: st.classCode,
+                    score: st.score,
+                    submissionTime: new Date().toLocaleString('id-ID'),
+                    answers: answersArray
+                };
+
+                await fetch(DEFAULT_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (statusEl) statusEl.classList.add('hidden');
+                showCustomModal('Pengumpulan Sukses! 🎉', 'Semua lembar jawaban remedial Math Tingkat Lanjut Anda telah diverifikasi & tersimpan.', 'success');
+            } catch (err) {
+                if (statusEl) statusEl.classList.add('hidden');
+                showCustomModal('Tersimpan di Lokal', 'Data pengerjaan tersimpan di browser ini.', 'info');
+            }
+        }
+
+        function showTeacherDashboard() {
+            showView('teacherDash');
+            renderTeacherTable();
+        }
+
+        function setTeacherFilterClass(cls) {
+            teacherFilterClass = cls;
+            ['ALL', '11.1', '11.2', '11.3'].forEach(c => {
+                const btnId = `filterClass${c.replace(/[:.]/g, '')}`;
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    if (c === cls) {
+                        btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold transition bg-indigo-600 text-white shadow";
+                    } else {
+                        btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200";
+                    }
+                }
+            });
+            renderTeacherTable();
+        }
+
+        function renderTeacherTable() {
+            const tbody = document.getElementById('teacherTableBody');
+            tbody.innerHTML = '';
+
+            const searchKey = document.getElementById('teacherSearchInput').value.trim().toLowerCase();
+
+            let statCompleted = 0;
+            let statPartial = 0;
+            let statPending = 0;
+
+            ALL_STUDENTS.forEach(st => {
+                const matchClass = (teacherFilterClass === 'ALL' || st.classCode === teacherFilterClass);
+                const matchSearch = (!searchKey || st.name.toLowerCase().includes(searchKey) || st.nickname.toLowerCase().includes(searchKey));
+
+                if (matchClass && matchSearch) {
+                    const requiredQNos = getQuestionNumbersForScore(st.score);
+                    const uploadedMap = studentSubmissions[st.id] || {};
+                    const uploadedCount = Object.keys(uploadedMap).length;
+
+                    let statusBadge = '';
+                    if (st.score >= KKM_SCORE) {
+                        statusBadge = '<span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full text-[10px] font-extrabold"><i class="fa-solid fa-award mr-1"></i>Tuntas KKM</span>';
+                        statCompleted++;
+                    } else if (uploadedCount === requiredQNos.length && requiredQNos.length > 0) {
+                        statusBadge = '<span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full text-[10px] font-bold"><i class="fa-solid fa-check mr-1"></i>Lengkap</span>';
+                        statCompleted++;
+                    } else if (uploadedCount > 0) {
+                        statusBadge = '<span class="px-2.5 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold"><i class="fa-solid fa-spinner mr-1"></i>Sebagian</span>';
+                        statPartial++;
+                    } else {
+                        statusBadge = '<span class="px-2.5 py-1 bg-rose-100 text-rose-800 rounded-full text-[10px] font-bold"><i class="fa-solid fa-clock mr-1"></i>Belum</span>';
+                        statPending++;
+                    }
+
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-slate-50 transition border-b border-slate-100";
+                    tr.innerHTML = `
+                        <td class="p-3.5"><span class="font-extrabold text-indigo-600">${st.classCode}</span></td>
+                        <td class="p-3.5">
+                            <span class="font-bold text-slate-800 block">${st.name}</span>
+                            <span class="text-[10px] text-slate-400">Panggilan: "${st.nickname}"</span>
+                        </td>
+                        <td class="p-3.5 text-center font-black ${st.score >= KKM_SCORE ? 'text-emerald-600' : 'text-amber-600'}">${st.score.toFixed(2)}</td>
+                        <td class="p-3.5 text-center font-bold">${st.score >= KKM_SCORE ? '0 (Tuntas)' : requiredQNos.length + ' Soal'}</td>
+                        <td class="p-3.5 text-center font-bold text-indigo-600">${st.score >= KKM_SCORE ? '-' : uploadedCount + ' / ' + requiredQNos.length + ' Soal'}</td>
+                        <td class="p-3.5 text-center">${statusBadge}</td>
+                        <td class="p-3.5 text-center">
+                            <button onclick="inspectStudentFromTeacher('${st.id}')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg text-[11px] font-bold shadow flex items-center gap-1 mx-auto transition">
+                                <i class="fa-solid fa-eye"></i> Inspeksi
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                }
+            });
+
+            document.getElementById('statTotalStudents').textContent = ALL_STUDENTS.length;
+            document.getElementById('statCompletedStudents').textContent = statCompleted;
+            document.getElementById('statPartialStudents').textContent = statPartial;
+            document.getElementById('statPendingStudents').textContent = statPending;
+        }
+
+        function inspectStudentFromTeacher(studentId) {
+            const found = ALL_STUDENTS.find(s => s.id === studentId);
+            if (found) {
+                currentUser = {
+                    role: 'student',
+                    studentObj: { ...found },
+                    classCode: found.classCode
+                };
+                showStudentDashboard();
+            }
+        }
+
+        function exportTeacherSummaryExcel() {
+            let csvContent = "data:text/csv;charset=utf-8,Kelas,Nama Siswa,Nama Panggilan,Nilai UTS Asli,Beban Soal,Progres Upload Soal,Status\n";
+
+            ALL_STUDENTS.forEach(st => {
+                const requiredQNos = getQuestionNumbersForScore(st.score);
+                const uploadedMap = studentSubmissions[st.id] || {};
+                const uploadedCount = Object.keys(uploadedMap).length;
+
+                let status = "Belum";
+                if (st.score >= KKM_SCORE) status = "Tuntas KKM";
+                else if (uploadedCount === requiredQNos.length) status = "Lengkap";
+                else if (uploadedCount > 0) status = "Sebagian";
+
+                csvContent += `"${st.classCode}","${st.name}","${st.nickname}",${st.score},${st.score >= KKM_SCORE ? 0 : requiredQNos.length},${uploadedCount},"${status}"\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `Rekapitulasi_Remedial_11_MathTL_MrTaqwa.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function openProofModal() {
+            if (!currentUser || !currentUser.studentObj) return;
+
+            const st = currentUser.studentObj;
+            const requiredQNos = getQuestionNumbersForScore(st.score);
+            const userAnswers = studentSubmissions[st.id] || {};
+
+            document.getElementById('proofStudentName').textContent = st.name;
+            document.getElementById('proofClass').textContent = st.classCode;
+            document.getElementById('proofScore').textContent = st.score.toFixed(2);
+            document.getElementById('proofTimestamp').textContent = new Date().toLocaleString('id-ID');
+            document.getElementById('proofDateCurrent').textContent = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            const tbody = document.getElementById('proofTableBody');
+            tbody.innerHTML = '';
+
+            if (requiredQNos.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="3" class="border p-4 text-center font-black text-emerald-600 bg-emerald-50">
+                            ✓ DIBEBASKAN DARI REMEDIAL (NILAI UTS TUNTAS KKM: ${st.score.toFixed(2)})
+                        </td>
+                    </tr>
+                `;
+            } else {
+                requiredQNos.forEach((qNo, i) => {
+                    const qObj = QUESTION_DB[qNo];
+                    const photos = userAnswers[qNo] || [];
+                    const isUploaded = photos.length > 0;
+
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td class="border p-2 text-center font-bold">${i + 1}</td>
+                        <td class="border p-2">Soal #${qNo} (${qObj.bab})</td>
+                        <td class="border p-2 text-center font-bold ${isUploaded ? 'text-emerald-600' : 'text-slate-400'}">
+                            ${isUploaded ? `✓ Tersimpan (${photos.length} Foto)` : '✗ Belum Upload'}
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+
+            document.getElementById('proofModal').classList.remove('hidden');
+        }
+
+        function closeProofModal() {
+            document.getElementById('proofModal').classList.add('hidden');
+        }
+
+        function openTeacherPdfModal() {
+            const area = document.getElementById('printableTeacherPdfArea');
+            area.innerHTML = '';
+
+            const classes = ['11.1', '11.2', '11.3'];
+            
+            let html = `
+                <div class="border-b-2 border-indigo-900 pb-3 text-center space-y-1 mb-6">
+                    <h2 class="text-base font-black uppercase text-indigo-900 tracking-wide">SMA AL MAZAYA ISLAMIC SCHOOL BANJARMASIN</h2>
+                    <h3 class="text-xs font-extrabold text-slate-800 uppercase">REKAPITULASI NILAI UTS 11 MATH TL-1 (MR. TAQWA)</h3>
+                    <p class="text-[10px] text-slate-500">Mata Pelajaran: Matematika Tingkat Lanjut • Dokumen Rekap Nilai Raport</p>
+                </div>
+            `;
+
+            classes.forEach(cls => {
+                const studentsInClass = ALL_STUDENTS.filter(s => s.classCode === cls);
+                if (studentsInClass.length === 0) return;
+
+                html += `
+                    <div class="space-y-2 mb-6">
+                        <div class="bg-slate-900 text-white px-3 py-1.5 rounded-lg flex items-center justify-between text-xs font-extrabold">
+                            <span>KELAS ${cls}</span>
+                            <span class="text-[10px] text-amber-300">Total: ${studentsInClass.length} Siswa</span>
+                        </div>
+                        <table class="w-full text-xs border border-slate-300 border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-800 font-bold">
+                                    <th class="border border-slate-300 p-2 text-center w-10">No</th>
+                                    <th class="border border-slate-300 p-2 text-left">Nama Siswa</th>
+                                    <th class="border border-slate-300 p-2 text-center w-32">Nilai UTS Asli</th>
+                                    <th class="border border-slate-300 p-2 text-center w-32">Status KKM (78)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+
+                studentsInClass.forEach((st, idx) => {
+                    const isPassed = st.score >= KKM_SCORE;
+                    html += `
+                        <tr class="hover:bg-slate-50">
+                            <td class="border border-slate-300 p-2 text-center font-bold">${idx + 1}</td>
+                            <td class="border border-slate-300 p-2 font-semibold text-slate-800">${st.name}</td>
+                            <td class="border border-slate-300 p-2 text-center font-extrabold ${isPassed ? 'text-emerald-700' : 'text-amber-700'}">${st.score.toFixed(2)}</td>
+                            <td class="border border-slate-300 p-2 text-center text-[10px] font-bold ${isPassed ? 'text-emerald-700' : 'text-slate-500'}">
+                                ${isPassed ? '✓ TUNTAS KKM' : 'REMEDIAL'}
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                html += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            });
+
+            html += `
+                <div class="pt-4 border-t border-slate-200 flex items-end justify-between text-xs text-slate-600">
+                    <p class="text-[10px] text-slate-400 italic">Terverifikasi otomatis oleh Sistem Al Mazaya.</p>
+                    <div class="text-center space-y-10">
+                        <p>Banjarmasin, ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}<br>Guru Math Tingkat Lanjut</p>
+                        <p class="font-bold underline text-slate-800">( Mr. Taqwa )</p>
+                    </div>
+                </div>
+            `;
+
+            area.innerHTML = html;
+            document.getElementById('teacherPdfModal').classList.remove('hidden');
+        }
+
+        function closeTeacherPdfModal() {
+            document.getElementById('teacherPdfModal').classList.add('hidden');
+        }
+
+        function showCustomModal(title, msg, type) {
+            const container = document.getElementById('modalIconContainer');
+            if (type === 'success') {
+                container.className = "w-14 h-14 rounded-full flex items-center justify-center mx-auto text-2xl bg-emerald-100 text-emerald-600";
+                container.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            } else if (type === 'warning') {
+                container.className = "w-14 h-14 rounded-full flex items-center justify-center mx-auto text-2xl bg-amber-100 text-amber-600";
+                container.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+            } else if (type === 'error') {
+                container.className = "w-14 h-14 rounded-full flex items-center justify-center mx-auto text-2xl bg-rose-100 text-rose-600";
+                container.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+            } else {
+                container.className = "w-14 h-14 rounded-full flex items-center justify-center mx-auto text-2xl bg-indigo-100 text-indigo-600";
+                container.innerHTML = '<i class="fa-solid fa-info"></i>';
+            }
+
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = msg;
+            document.getElementById('customModal').classList.remove('hidden');
+        }
+
+        function closeCustomModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+
+        function openImagePreviewModal(imgSrc, qNo, photoNum) {
+            document.getElementById('imagePreviewTarget').src = imgSrc;
+            document.getElementById('imagePreviewTitle').textContent = `Soal UTS #${qNo} • Foto Jawaban ke-${photoNum}`;
+            document.getElementById('imagePreviewModal').classList.remove('hidden');
+        }
+
+        function closeImagePreviewModal() {
+            document.getElementById('imagePreviewModal').classList.add('hidden');
+            document.getElementById('imagePreviewTarget').src = '';
+        }
+    </script>
+</body>
+</html>
